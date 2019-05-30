@@ -16,10 +16,13 @@ class View(APIView):
         }
 
         all_items = SportsfesItem.objects.all()
+        contents = []
 
         for item in all_items:
             item.delete()
+            contents.append(item.content)
 
         response['success'] = True
+        response['gift'] = contents
 
         return JsonResponse(response)
