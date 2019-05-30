@@ -12,9 +12,8 @@
   </head>
   <body style="background: #f3f3f3">
     <div class="container">
-      <h1 class="h1 my-4">歓声プリーズ！！</h1>
-      <p id="star">
-      </p>
+      <h1 class="my-4">歓声プリーズ！！</h1>
+      <div class="h3 my-2" id="ncomment">ここか！</div>
       <ul class="list-group" id="com-list">
         {% for item in all_items %}
         <li class="list-group-item">{{ item.content }}
@@ -29,6 +28,9 @@
         <input type="text" class="form-control form-control-lg col-7 my-2" placeholder="コメント頂戴！" name="content" required>
         <input type="submit" class="btn btn-success btn-lg px-4 my-2" value="Add"/>
       </form>
+
+      <p id="star">
+      </p>
     </div>
   </body>
   <script>
