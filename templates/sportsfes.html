@@ -10,10 +10,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body style="background: #f3f3f3">
     <div class="container">
       <h1 class="h1 my-4">歓声プリーズ！！</h1>
-      <ul class="list-group">
+      <p id="star">
+      </p>
+      <ul class="list-group" id="com-list">
         {% for item in all_items %}
         <li class="list-group-item">{{ item.content }}
           <!--<form action="/deleteSportsfes/{{item.id}}" style="display: inline;" method="post">{% csrf_token %}-->
@@ -29,4 +31,15 @@
       </form>
     </div>
   </body>
+  <script>
+    let clist = document.getElementById("com-list");
+    let nmember ={{ nmember }};
+
+    let starstr = "⭐".repeat(nmember);
+
+    let star_target = document.getElementById("star");
+    let star_text = document.createTextNode(starstr);
+
+    star_target.appendChild(star_text);
+  </script>
 </html>

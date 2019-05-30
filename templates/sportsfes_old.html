@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="ja">
+  <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>B組応援メッセージ</title>
-    <h1>歓声プリーズ！！</h1>
-</head>
-<body>
-<ul>
-    {% for item in all_items %}
-       <li>{{ item.content }}
-           <!--<form action="/deleteSportsfes/{{item.id}}" style="display: inline;" method="post">{% csrf_token %}-->
-               <!--<input type="submit" value="Delete"/>-->
-           <!--</form>-->
-       </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="h1 my-4">歓声プリーズ！！</h1>
+      <ul class="list-group">
+        {% for item in all_items %}
+        <li class="list-group-item">{{ item.content }}
+          <!--<form action="/deleteSportsfes/{{item.id}}" style="display: inline;" method="post">{% csrf_token %}-->
+          <!--<input type="submit" value="Delete"/>-->
+          <!--</form>-->
+        </li>
+        {% endfor %}
+      </ul>
 
-<form action="/addSportsfes/" method="post">{% csrf_token %}
-    <input type="text" name="content"/>
-    <input type="submit" value="Add"/>
-</form>
+      <form action="/addSportsfes/" method="post" class="my-2 form-inline">{% csrf_token %}
+        <input type="text" class="form-control form-control-lg col-7 my-2" placeholder="コメント頂戴！" name="content" required>
+        <input type="submit" class="btn btn-success btn-lg px-4 my-2" value="Add"/>
+      </form>
+    </div>
+  </body>
+</html>

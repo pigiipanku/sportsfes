@@ -8,6 +8,7 @@ class SportsfesConfig(AppConfig):
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     APP_DIR = os.path.join(BASE_DIR, name)
+    nmenber = 0
 
     def ready(self):
 
