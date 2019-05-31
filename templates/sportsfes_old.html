@@ -12,12 +12,8 @@
   </head>
   <body style="background: #f3f3f3">
     <div class="container">
-      <h1 class="my-4 text-center">歓声プリーズ！！！</h1>
-      <div class="h3 my-2 text-center text-success" id="ncomment"><b>現在のコメント数：{{ nmember }}</b></div>
-      <form action="/addSportsfes/" method="post" class="my-2 form-inline justify-content-center">{% csrf_token %}
-        <input type="text" class="form-control form-control-lg col-7 my-2" placeholder="コメント頂戴！" name="content" required>
-        <input type="submit" class="btn btn-success btn-lg px-4 my-2" value="Add"/>
-      </form>
+      <h1 class="my-4">歓声プリーズ！！</h1>
+      <div class="h3 my-2" id="ncomment">ここか！</div>
       <ul class="list-group" id="com-list">
         {% for item in all_items %}
         <li class="list-group-item">{{ item.content }}
@@ -28,37 +24,20 @@
         {% endfor %}
       </ul>
 
+      <form action="/addSportsfes/" method="post" class="my-2 form-inline">{% csrf_token %}
+        <input type="text" class="form-control form-control-lg col-7 my-2" placeholder="コメント頂戴！" name="content" required>
+        <input type="submit" class="btn btn-success btn-lg px-4 my-2" value="Add"/>
+      </form>
 
-
-      <p id="star" class="text-center">
+      <p id="star">
       </p>
     </div>
   </body>
   <script>
-    function make_star(n) {
-      let str = "";
-      while(1) {
-        if(n >= 15) {
-          str += "⭐".repeat(15);
-          str += '\n';
-          n -= 15;
-        }
-        else {
-          str += "⭐".repeat(n);
-          break;
-        }
-      }
-
-      str.replace(/\r?\n/g, '<br>');
-
-      return str;
-    }
-
     let clist = document.getElementById("com-list");
-    //let nmember = clist.childElementCount;
     let nmember ={{ nmember }};
 
-    let starstr = make_star(nmember);
+    let starstr = "⭐".repeat(nmember);
 
     let star_target = document.getElementById("star");
     let star_text = document.createTextNode(starstr);
