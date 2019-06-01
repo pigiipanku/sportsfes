@@ -13,4 +13,4 @@ pip install -r requirements.txt
 
 サーバーに配備する時に参考になるサイト：https://qiita.com/okoppe8/items/0f67753706cdc11ff1cd
 
-付属している .exeファイルをローカルで配備して、サーバーのAPIを叩けばコメントを画面に表示できます。
+付属しているsportsfestival.zipを展開して、その中の.exeファイルをローカルに展開して、サーバーのAPIを叩けばコメントを画面に表示できます。
